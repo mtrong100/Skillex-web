@@ -1,6 +1,4 @@
 import React from "react";
-import { FiUsers } from "react-icons/fi";
-import { RiStarSLine } from "react-icons/ri";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -8,6 +6,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 // import required modules
 import { Autoplay, Pagination } from "swiper";
+import { FiUsers } from "react-icons/fi";
+import { RiStarSLine } from "react-icons/ri";
 
 const CoursesSwiper = ({ courses }) => {
   return (
@@ -17,8 +17,10 @@ const CoursesSwiper = ({ courses }) => {
         spaceBetween={30}
         loop={true}
         grabCursor={true}
+        centeredSlides={true}
         autoplay={{
           delay: 2000,
+          disableOnInteraction: false,
         }}
         pagination={{
           clickable: true,
@@ -45,10 +47,12 @@ const CoursesSwiper = ({ courses }) => {
       >
         {courses.map((item, id) => {
           const { image, category, title, rating, participants, price } = item;
-
           return (
             <SwiperSlide key={id}>
-              <div className="bg-white p-3 min-h-[420px] rounded-md border-4 border-solid border-Teal">
+              <div
+                key={id}
+                className="bg-white p-3 min-h-[420px] rounded-md border-4 border-solid border-Teal"
+              >
                 <div>
                   <img
                     className="rounded-md select-none"

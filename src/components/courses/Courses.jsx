@@ -3,24 +3,8 @@ import { categories } from "../../Data";
 import { courses } from "../../Data";
 import Categories from "./Categories";
 import CoursesSwiper from "./CoursesSwiper";
-import { motion } from "framer-motion";
 
 const Courses = () => {
-  const container = {
-    hidden: {
-      opacity: 0,
-      scale: 0,
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delayChildren: 0.1,
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
   return (
     <section id="courses">
       <div className="wrapper my-20">
@@ -38,16 +22,11 @@ const Courses = () => {
         </div>
 
         {/* categories */}
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="visible"
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-10 p-4"
-        >
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-10 p-4">
           {categories.map((item, id) => {
             return <Categories key={id} {...item}></Categories>;
           })}
-        </motion.div>
+        </div>
 
         {/* courses */}
         <div className="mt-20">

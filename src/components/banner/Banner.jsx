@@ -2,43 +2,24 @@ import React from "react";
 import { banner } from "../../Data";
 import { logos } from "../../Data";
 import { TypeAnimation } from "react-type-animation";
-import { motion } from "framer-motion";
 
 const Banner = () => {
   const { smallText, title, subTitle, btn1, btn2, img } = banner;
 
   /* framer-motion */
-  const container = {
-    hidden: {
-      opacity: 0,
-      scale: 0,
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.1,
-      },
-    },
-  };
-  const child = {
-    hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1 },
-  };
 
   return (
     <section id="home">
-      <div className="wrapper mt-[120px]">
+      <div className="wrapper pt-[120px]">
         <div className="grid md:grid-cols-2 gap-3 place-items-center">
           {/* content */}
-          <motion.div className="flex flex-col gap-4 md:gap-6">
+          <div className="flex flex-col gap-4 md:gap-6">
             <span className="text-Teal text-sm font-semibold">{smallText}</span>
 
             {/* type animation */}
             <TypeAnimation
               sequence={[`${title}`, 1000, ""]}
-              speed={40}
+              speed={50}
               className="text-3xl lg:text-5xl font-bold w-full min-h-[80px] md:max-w-[280px] md:min-h-[120px] lg:min-h-[180px] lg:max-w-sm text-Teal"
               wrapper="h1"
               style={{
@@ -56,7 +37,7 @@ const Banner = () => {
                 {btn2}
               </button>
             </div>
-          </motion.div>
+          </div>
 
           {/* banner image */}
           <div>
@@ -69,12 +50,7 @@ const Banner = () => {
         </div>
 
         {/* brand */}
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="visible"
-          className="mt-20 text-center"
-        >
+        <div className="mt-20 text-center">
           <h2 className="font-medium md:text-xl">
             We collaborate with{" "}
             <span className="text-Teal">
@@ -83,12 +59,12 @@ const Banner = () => {
           </h2>
           <div className="grid mt-5 grid-cols-3 lg:grid-cols-6 gap-5 place-items-center">
             {logos.map((item, id) => (
-              <motion.div variants={child} key={id}>
+              <div key={id}>
                 <img src={item} alt="brand-logo" />
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
