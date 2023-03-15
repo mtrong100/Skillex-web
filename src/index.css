@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply font-poppins bg-Solitude;
+  }
+  .wrapper {
+    @apply max-w-[1170px] px-[15px] mx-auto;
+  }
+  .buttons {
+    @apply inline-block border-2 border-solid border-Teal font-medium rounded-md;
+  }
+  .btnStyle {
+    @apply px-6 py-3;
+  }
+  .img-cover {
+    @apply w-full h-full object-cover;
+  }
+}
+
+:root {
+  --greencolor: #2f6c6d;
+}
+/* edu-bg */
+.contact-content {
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.bg-contact {
+  position: relative;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.33)
+    ),
+    url(./assets/images/eduBG.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 380px;
+  background-attachment: fixed;
+}
+
+/* custom swiper js */
+.swiper-pagination-bullet-active {
+  background-color: #2f6c6d !important;
+}
+
+/* links hover */
+.link {
+  position: relative;
+}
+.link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 3px;
+  width: 0;
+  background-color: var(--greencolor);
+  transition: all 0.3s linear;
+}
+.link:hover::before {
+  width: 100%;
+  transition: all 0.3s linear;
+}
+
+/* custom hover buttons */
+.btn {
+  cursor: pointer;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.btn:hover::before {
+  left: auto;
+  right: 0;
+  width: 100%;
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: auto;
+  top: 0;
+  height: 100%;
+  width: 0;
+  background-color: #fff;
+  opacity: 0.1;
+  z-index: -1;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* custom hover btn-2 */
+.btn-shinny {
+  transition: all 0.2s linear;
+}
+.btn-shinny:hover {
+  background-color: var(--greencolor);
+  color: white;
+}
